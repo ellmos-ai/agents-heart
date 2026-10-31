@@ -1,0 +1,24 @@
+{
+  "schema": "ellmos.module.v2",
+  "id": "modul:agents-heart",
+  "name": "agents-heart",
+  "version": "0.2.0",
+  "tier": 1,
+  "category": "control",
+  "license": "MIT",
+  "repository": "https://github.com/ellmos-ai/agents-heart",
+  "entrypoints": {
+    "python": "agents_heart"
+  },
+  "exports": [
+    "RoleContract",
+    "ROLE_CONTRACTS",
+    "Assignment",
+    "AssignmentDenied",
+    "ProfileDeletionRejected",
+    "authorize_role",
+    "begin_assignment",
+    "finish_assignment",
+    "delete_worker_profile"
+  ]
+}
