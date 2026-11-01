@@ -1,24 +1,44 @@
 {
   "schema": "ellmos.module.v2",
-  "id": "modul:agents-heart",
-  "name": "agents-heart",
+  "id": "agents-heart",
+  "display_name": "agents-heart",
   "version": "0.2.0",
-  "tier": 1,
   "category": "control",
-  "license": "MIT",
-  "repository": "https://github.com/ellmos-ai/agents-heart",
+  "kind": "library",
+  "status": "active",
+  "visibility": "private",
+  "description": "Kanonische Worker-Rollenverträge, Assignment-Autorisierung und Profil-Lifecycle für BACH und Ocean.",
   "entrypoints": {
-    "python": "agents_heart"
+    "library": "agents_heart"
   },
-  "exports": [
-    "RoleContract",
-    "ROLE_CONTRACTS",
-    "Assignment",
-    "AssignmentDenied",
-    "ProfileDeletionRejected",
-    "authorize_role",
-    "begin_assignment",
-    "finish_assignment",
-    "delete_worker_profile"
-  ]
+  "provides": [
+    "control.agents.role-contracts",
+    "control.agents.assignment-auth",
+    "control.agents.profile-lifecycle"
+  ],
+  "requires": [],
+  "optional": [],
+  "conflicts": [],
+  "surfaces": [
+    "library"
+  ],
+  "state": {
+    "ownership": "module",
+    "location": "user-home"
+  },
+  "boundaries": {
+    "network": "none",
+    "data": "user-local",
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ]
+  },
+  "source_of_truth": {
+    "type": "git-repository",
+    "path": ".",
+    "repository": "https://github.com/ellmos-ai/agents-heart"
+  },
+  "adapters": []
 }
