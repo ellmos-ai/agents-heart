@@ -1,7 +1,83 @@
+# Python build & virtual environments
+.venv/
 __pycache__/
 *.py[cod]
-.pytest_cache/
+*.pyc
 *.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 dist/
 build/
-.venv/
+
+# Configuration & Data files
+.env
+*.db
+*.sqlite
+*.sqlite3
+.idea/
+.vscode/
+data/
+
+# Multi-Host Sync-Konflikte & System-Reste
+* (kopie)*
+* (Kopie)*
+* (copy)*
+* (Copy)*
+*conflicted copy*
+*-conflict-*
+*.sync-temp-*
+*.sync-conflict-*
+*-CONFLIT-*
+*.conflict
+*-WORKSTATION*
+*-WORKSTATION-LG.*
+*-ASUS*
+*-ASUS-GEI.*
+*-LAPTOP*
+*-LAPTOP.*
+*-IDEAPAD*
+*-IDEAPAD-GEI.*
+Desktop.ini
+Thumbs.db
+
+# Locks & Automation markers
+LOCK
+LOCK.*
+LOCK.user.*
+LOCK.until.*
+LOCK.condition.*
+LOCK.dev.*
+LOCK.antigravity.*
+LOCK.bugsearch.*
+LOCK.permissions.json
+.automation-lock
+*.lock
+LOCK*.txt
+uv.lock
+
+# Test- & Tooling-Caches
+.pytest_temp/
+.pytest_tmp*/
+.hypothesis/
+.tox/
+
+# Secrets, Tokens & Private Keys
+*.pem
+*.key
+*.pfx
+*.p12
+*.crt
+*.cert
+*.token
+*.secret
+credentials.json
+secrets.json
+id_rsa*
+id_ed25519*
+
+# OS- & Editor-Reste
+.DS_Store
+*.swp
+*.swo
