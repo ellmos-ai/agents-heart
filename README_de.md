@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.svg" alt="agents-heart banner" width="100%">
+</p>
+
 # agents-heart (Deutsche Dokumentation)
 
 Provider-neutrales Control-Modul (`modul:agents-heart`, v0.2.0) für Worker-Rollenverträge, Besetzungs-Autorisierung und Profil-Lebenszyklus.
