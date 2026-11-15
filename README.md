@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.svg" alt="agents-heart banner" width="100%">
+</p>
+
 # agents-heart
 
 Provider-neutral control library (`modul:agents-heart`, v0.2.0) for agent role contract enforcement, assignment correlation, and worker profile lifecycle management.
