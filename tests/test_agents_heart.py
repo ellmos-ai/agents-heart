@@ -1,5 +1,7 @@
-# -*- coding: utf-8 -*-
+from dataclasses import FrozenInstanceError
+
 import pytest
+
 from agents_heart import (
     AssignmentDenied,
     ProfileDeletionRejected,
@@ -238,3 +240,45 @@ def test_delete_worker_profile_rejection_cases():
             remove=lambda: True,
         )
     assert exc.value.code == "terminal_receipts_unconfirmed"
+
+
+def test_role_contract_and_assignment_are_frozen():
+    contract = authorize_role("task_worker", mode="safe")
+    with pytest.raises(FrozenInstanceError):
+        contract.role_id = "other"  # type: ignore[misc]
+
+    events: list[dict[str, object]] = []
+    assignment = begin_assignment(
+        role_id="task_worker",
+        mode="safe",
+        agent_instance_id="inst-immutable",
+        backend_id="local",
+        model_id="default",
+        slot_id="slot-01",
+        task_id="T-1",
+        event_recorder=events.append,
+    )
+    with pytest.raises(FrozenInstanceError):
+        assignment.status = "mutated"  # type: ignore[attr-defined]
+
+
+def test_delete_worker_profile_inactivity_failure_prevents_archive_and_remove():
+    archived: list[str] = []
+    removed: list[bool] = []
+    profile = {"id": "worker-active"}
+
+    def fail_inactive(_profile):
+        raise ProfileDeletionRejected("worker_still_active")
+
+    with pytest.raises(ProfileDeletionRejected) as exc:
+        delete_worker_profile(
+            "worker-active",
+            profile,
+            assert_inactive=fail_inactive,
+            terminal_records=lambda p: [{"id": "run-1", "phase": "terminal"}],
+            archive=lambda pid, recs: archived.append(pid),
+            remove=lambda: (removed.append(True) or True),
+        )
+    assert exc.value.code == "worker_still_active"
+    assert archived == []
+    assert removed == []

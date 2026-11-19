@@ -4,6 +4,14 @@
 
 # agents-heart (Deutsche Dokumentation)
 
+[![Version](https://img.shields.io/badge/Version-0.2.0-blue)](pyproject.toml)
+[![Python](https://img.shields.io/badge/Python-3.11%20|%203.12%20|%203.13-blue)](pyproject.toml)
+[![Lizenz: MIT](https://img.shields.io/badge/Lizenz-MIT-green)](LICENSE)
+[![Tests](https://img.shields.io/badge/pytest-23%20bestanden-brightgreen)](tests/)
+[![Geprüft](https://img.shields.io/badge/geprüft-2026--11--19-informational)](CHANGELOG.md)
+
+**Sprache / Language:** [English](README.md) | **Deutsch**
+
 Provider-neutrales Control-Modul (`modul:agents-heart`, v0.2.0) für Worker-Rollenverträge, Besetzungs-Autorisierung und Profil-Lebenszyklus.
 
 ## Überblick
@@ -13,6 +21,24 @@ Provider-neutrales Control-Modul (`modul:agents-heart`, v0.2.0) für Worker-Roll
 1. **Rollen-Autorisierung (`authorize_role`)**: Prüft fail-closed, ob ein geplanter Ausführungspfad die erforderlichen Rechte (`task.claim`, `task.execute`) besitzt.
 2. **Besetzungs-Korrelation (`begin_assignment`, `finish_assignment`)**: Vergibt unveränderliche `Assignment`-Identitäten und zeichnet korrelierbare Start- und Endbelege auf (`assignment.started`, `assignment.ended`).
 3. **Sicheres Profil-Löschen (`delete_worker_profile`)**: Garantiert Inaktivität, verifiziert das Erreichen des Terminal-Status (`phase == "terminal"`) aller archivierten Läufe und führt die geordnete Bereinigung durch.
+
+## Installation
+
+```bash
+pip install -e .
+```
+
+Inklusive Entwicklungs- und Testwerkzeugen (`pytest`, `ruff`):
+
+```bash
+pip install -e ".[dev]"
+```
+
+### Installation & Integration mit deinem LLM
+
+Lies [llms.txt](llms.txt) und [SKILL.md](SKILL.md) für kompakte API-Verträge und fail-closed Nutzungsregeln:
+
+> *Prompt:* „Lies `llms.txt` und `SKILL.md` in `agents-heart`, installiere das Paket mit `pip install -e .` und integriere `authorize_role`, `begin_assignment`, `finish_assignment` sowie `delete_worker_profile`, ohne fail-closed Prüfungen zu umgehen.“
 
 ## Schnittstellen & Verwendung
 
@@ -90,6 +116,24 @@ assert erfolg is True
 - **Daten:** Benutzerlokal (`boundaries.data: "user-local"`).
 - **Plattformen:** Windows, macOS, Linux.
 - **Oberfläche:** Python-Bibliothek (`entrypoints.library: "agents_heart"`).
+
+## Tests & Linting
+
+Führe Linter sowie Unit- und Vertragstests mit `ruff` und `pytest` aus:
+
+```bash
+ruff check .
+pytest -ra -v
+```
+
+## Governance & LLM-Einstiege
+
+- [SKILL.md](SKILL.md) — Agenten-Skill-Spezifikation
+- [llms.txt](llms.txt) — Kompakter LLM-Kontexteinstieg ([llm.txt](llm.txt))
+- [CONTRIBUTING.md](CONTRIBUTING.md) — Entwicklungs- und Qualitätsregeln
+- [SECURITY.md](SECURITY.md) — Sicherheitsgarantien und vertrauliche Meldung
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — Verhaltenskodex
+- [CHANGELOG.md](CHANGELOG.md) — Versionshistorie
 
 ## Lizenz
 

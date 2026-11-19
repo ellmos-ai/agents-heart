@@ -1,0 +1,1 @@
+See [llms.txt](llms.txt) for the canonical LLM context and API entrypoint of `agents-heart`.
