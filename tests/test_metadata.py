@@ -169,8 +169,8 @@ def test_ci_workflow_and_dependabot_present():
         assert (REPO_ROOT / ".github" / "ISSUE_TEMPLATE" / tmpl).is_file()
 
 
-def test_governance_and_p022_files_present():
-    """Verify required governance and Policy P-022 LLM entrypoints exist."""
+def test_governance_and_llm_entrypoint_files_present():
+    """Verify required governance and LLM entrypoint files exist."""
     for rel in [
         "README.md",
         "README_de.md",

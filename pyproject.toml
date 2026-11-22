@@ -58,8 +58,14 @@ pythonpath = ["src"]
 testpaths = ["tests"]
 addopts = ["--strict-markers", "-ra"]
 xfail_strict = true
-asyncio_default_fixture_loop_scope = "function"
 norecursedirs = [
+    "*.egg",
+    ".*",
+    "_darcs",
+    "CVS",
+    "node_modules",
+    "venv",
+    "{arch}",
     ".git",
     ".venv",
     ".pytest_temp",

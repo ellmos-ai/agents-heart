@@ -32,7 +32,7 @@ Provider-neutrales Control-Modul (`modul:agents-heart`, v0.2.0) für Worker-Roll
 - [x] **PEP 561 Typisierungsunterstützung:** Typisierungsmarker `py.typed` hinterlegt und in `package-data` verankert.
 - [x] **Testsuite-Härtung:** Umfassende Unit- und Vertragstests für alle Validierungs- und Fehlerpfade (`pytest` mit nativer `pythonpath`-Auflösung).
 - [x] **Release-Gate-Standardisierung:** Bereitstellung von `LICENSE`, `.gitignore`, `TODO.md`, `README.md` und `README_de.md` für 10/10 Final Gate Check.
-- [x] **Pfad-A-Hygiene, CI & Governance:** Cross-OS CI-Matrix, Dependabot, `CODE_OF_CONDUCT.md`, `SECURITY.md`, `CONTRIBUTING.md`, P-022 (`SKILL.md`, `llms.txt`, `llm.txt`) und `ruff`-Bereinigung.
+- [x] **Pfad-A-Hygiene, CI & Governance:** Cross-OS CI-Matrix, Dependabot, `CODE_OF_CONDUCT.md`, `SECURITY.md`, `CONTRIBUTING.md`, LLM-Einstiegspunkte (`SKILL.md`, `llms.txt`, `llm.txt`) und `ruff`-Bereinigung.
 
 ---
 

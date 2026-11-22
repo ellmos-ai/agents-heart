@@ -3,7 +3,7 @@
 ## [Unreleased]
 ### Added
 - Cross-OS CI matrix workflow (`.github/workflows/ci.yml`: Ubuntu/Windows/macOS on Python 3.11–3.13 with `workflow_dispatch` and `contents: read` permissions), Dependabot configuration (`.github/dependabot.yml`), and bilingual issue templates (`.github/ISSUE_TEMPLATE/`).
-- Bilingual governance documentation (`CODE_OF_CONDUCT.md`, `SECURITY.md`, `CONTRIBUTING.md`) and Policy P-022 LLM entrypoints (`SKILL.md`, `llms.txt`, `llm.txt`).
+- Bilingual governance documentation (`CODE_OF_CONDUCT.md`, `SECURITY.md`, `CONTRIBUTING.md`) and LLM entrypoints (`SKILL.md`, `llms.txt`, `llm.txt`).
 - Expanded PEP 621 metadata (`keywords`, `[project.urls]`, `[project.optional-dependencies].dev`), hardened `[tool.pytest.ini_options]` without relative `--basetemp`, and standardized `[tool.ruff.lint]` rules in `pyproject.toml`.
 - Additional unit and metadata contract tests in `tests/test_agents_heart.py` and `tests/test_metadata.py`.
 
