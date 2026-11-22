@@ -11,6 +11,16 @@ requires-python = ">=3.11"
 license = "MIT"
 license-files = ["LICENSE"]
 authors = [{ name = "ellmos-ai" }]
+keywords = [
+    "agent-control",
+    "agents",
+    "assignment",
+    "authorization",
+    "contracts",
+    "lifecycle",
+    "orchestration",
+    "roles",
+]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -22,6 +32,21 @@ classifiers = [
 ]
 dependencies = []
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[project.urls]
+Homepage = "https://github.com/ellmos-ai/agents-heart"
+Repository = "https://github.com/ellmos-ai/agents-heart"
+Issues = "https://github.com/ellmos-ai/agents-heart/issues"
+Changelog = "https://github.com/ellmos-ai/agents-heart/blob/main/CHANGELOG.md"
+Contributing = "https://github.com/ellmos-ai/agents-heart/blob/main/CONTRIBUTING.md"
+Security = "https://github.com/ellmos-ai/agents-heart/blob/main/SECURITY.md"
+"Code of Conduct" = "https://github.com/ellmos-ai/agents-heart/blob/main/CODE_OF_CONDUCT.md"
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
@@ -31,7 +56,31 @@ agents_heart = ["py.typed"]
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
+addopts = ["--strict-markers", "-ra"]
+xfail_strict = true
+norecursedirs = [
+    "*.egg",
+    ".*",
+    "_darcs",
+    "CVS",
+    "node_modules",
+    "venv",
+    "{arch}",
+    ".git",
+    ".venv",
+    ".pytest_temp",
+    ".pytest_tmp*",
+    "build",
+    "dist",
+    "*.egg-info",
+]
 
 [tool.ruff]
 line-length = 100
 target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["agents_heart"]

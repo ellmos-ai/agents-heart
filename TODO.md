@@ -6,7 +6,7 @@ Provider-neutrales Control-Modul (`modul:agents-heart`, v0.2.0) für Worker-Roll
 
 | Category | Status | Notes |
 |----------|--------|-------|
-| .gitignore | :green_circle: | Alle Mindesteinträge für Release-Hygiene und Lock-Schutz vorhanden |
+| .gitignore | :green_circle: | Alle Mindesteinträge für Release-Hygiene, Multi-Host- & Lock-Schutz vorhanden |
 | README.md | :green_circle: | Vollständige englische Dokumentation mit zweisprachiger README_de.md |
 | LICENSE | :green_circle: | MIT-Lizenzdatei vorhanden |
 | Database Files | :green_circle: | 0 .db-Dateien im Repository |
@@ -18,7 +18,7 @@ Provider-neutrales Control-Modul (`modul:agents-heart`, v0.2.0) für Worker-Roll
 | TODO.md | :green_circle: | Standardisierte Statustabelle und Roadmap codifiziert |
 | **Overall** | **CLEAN** | 10/10 Final Gate Check PASS, 100% Metadaten- und Vertragspariät |
 
-**Audit-Datum:** 2026-11-05
+**Audit-Datum:** 2026-11-19
 **Gate Check Exit Code:** `0`
 
 ---
@@ -32,6 +32,7 @@ Provider-neutrales Control-Modul (`modul:agents-heart`, v0.2.0) für Worker-Roll
 - [x] **PEP 561 Typisierungsunterstützung:** Typisierungsmarker `py.typed` hinterlegt und in `package-data` verankert.
 - [x] **Testsuite-Härtung:** Umfassende Unit- und Vertragstests für alle Validierungs- und Fehlerpfade (`pytest` mit nativer `pythonpath`-Auflösung).
 - [x] **Release-Gate-Standardisierung:** Bereitstellung von `LICENSE`, `.gitignore`, `TODO.md`, `README.md` und `README_de.md` für 10/10 Final Gate Check.
+- [x] **Pfad-A-Hygiene, CI & Governance:** Cross-OS CI-Matrix, Dependabot, `CODE_OF_CONDUCT.md`, `SECURITY.md`, `CONTRIBUTING.md`, LLM-Einstiegspunkte (`SKILL.md`, `llms.txt`, `llm.txt`) und `ruff`-Bereinigung.
 
 ---
 

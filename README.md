@@ -4,6 +4,14 @@
 
 # agents-heart
 
+[![Version](https://img.shields.io/badge/version-0.2.0-blue)](pyproject.toml)
+[![Python](https://img.shields.io/badge/python-3.11%20|%203.12%20|%203.13-blue)](pyproject.toml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Tests](https://img.shields.io/badge/pytest-23%20passed-brightgreen)](tests/)
+[![Verified](https://img.shields.io/badge/verified-2026--11--19-informational)](CHANGELOG.md)
+
+**Language / Sprache:** **English** | [Deutsch](README_de.md)
+
 Provider-neutral control library (`modul:agents-heart`, v0.2.0) for agent role contract enforcement, assignment correlation, and worker profile lifecycle management.
 
 ## Overview
@@ -18,6 +26,18 @@ Provider-neutral control library (`modul:agents-heart`, v0.2.0) for agent role c
 ```bash
 pip install -e .
 ```
+
+With development tools (`pytest`, `ruff`):
+
+```bash
+pip install -e ".[dev]"
+```
+
+### Install & Integrate with Your LLM
+
+Read [llms.txt](llms.txt) and [SKILL.md](SKILL.md) for concise API contracts and fail-closed usage patterns:
+
+> *Prompt:* "Read `llms.txt` and `SKILL.md` in `agents-heart`, install the package with `pip install -e .`, and integrate `authorize_role`, `begin_assignment`, `finish_assignment`, and `delete_worker_profile` without bypassing fail-closed checks."
 
 ## Usage
 
@@ -96,13 +116,23 @@ assert success is True
 - **Platforms:** Windows, macOS, Linux
 - **Surfaces:** Python library (`entrypoints.library: "agents_heart"`)
 
-## Testing
+## Testing & Linting
 
-Run unit and contract tests via pytest:
+Run linting and unit/contract tests via `ruff` and `pytest`:
 
 ```bash
-pytest -v
+ruff check .
+pytest -ra -v
 ```
+
+## Governance & LLM Entrypoints
+
+- [SKILL.md](SKILL.md) — Agent skill reference
+- [llms.txt](llms.txt) — Concise LLM context entrypoint ([llm.txt](llm.txt))
+- [CONTRIBUTING.md](CONTRIBUTING.md) — Development and quality gates
+- [SECURITY.md](SECURITY.md) — Security guarantees and private reporting
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — Community standards
+- [CHANGELOG.md](CHANGELOG.md) — Version history
 
 ## Documentation in German
 

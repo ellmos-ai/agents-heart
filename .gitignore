@@ -18,6 +18,10 @@ build/
 *.sqlite3
 .idea/
 .vscode/
+.claude/
+.codex/
+.gemini/
+.agent/
 data/
 
 # Multi-Host Sync-Konflikte & System-Reste
@@ -41,6 +45,7 @@ data/
 *-IDEAPAD-GEI.*
 Desktop.ini
 Thumbs.db
+ehthumbs.db
 
 # Locks & Automation markers
 LOCK
@@ -51,11 +56,19 @@ LOCK.condition.*
 LOCK.dev.*
 LOCK.antigravity.*
 LOCK.bugsearch.*
+LOCK.orchestrator.*
+LOCK.operator.*
+LOCK.worker.*
+LOCK.thinker.*
+LOCK.reviewer.*
 LOCK.permissions.json
+LOCK-CACHE.*
 .automation-lock
 *.lock
 LOCK*.txt
 uv.lock
+*MARKETING-LOG.txt
+MARKETING-LOG.txt
 
 # Test- & Tooling-Caches
 .pytest_temp/
@@ -77,7 +90,11 @@ secrets.json
 id_rsa*
 id_ed25519*
 
-# OS- & Editor-Reste
+# OS-, Debug- & Editor-Reste
 .DS_Store
 *.swp
 *.swo
+*.log
+*.tmp
+*.bak
+*.prof
