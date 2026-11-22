@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Kleiner Besetzungs- und Lebenszyklus-Seam für agents-heart (v0.2.0).
 
 Dieses Modul entscheidet weder Modelle noch Backends. Es prüft den
@@ -8,11 +7,11 @@ Worker-Profile nach Archivierung abgeschlossener Läufe (Task #2103).
 """
 from __future__ import annotations
 
+import uuid
 from collections.abc import Callable, Iterable, Mapping
 from dataclasses import dataclass
-from datetime import datetime, timezone
-import uuid
-from typing import Any, Dict
+from datetime import UTC, datetime
+from typing import Any
 
 
 class AssignmentDenied(RuntimeError):
@@ -36,7 +35,7 @@ class RoleContract:
     rights: frozenset[str]
 
 
-ROLE_CONTRACTS: Dict[str, RoleContract] = {
+ROLE_CONTRACTS: dict[str, RoleContract] = {
     "hintergrund_worker": RoleContract(
         role_id="hintergrund_worker",
         revision="v1",
@@ -95,7 +94,7 @@ def authorize_role(role_id: str, mode: str) -> RoleContract:
 
 
 def _utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def _require_text(name: str, value: Any) -> str:
@@ -113,8 +112,8 @@ def _event_details(
     ended_at: str | None = None,
     result: str = "",
     reason: str = "",
-) -> Dict[str, Any]:
-    details: Dict[str, Any] = {
+) -> dict[str, Any]:
+    details: dict[str, Any] = {
         "assignment_id": assignment.assignment_id,
         "event": event,
         "role_id": assignment.role_id,
@@ -149,7 +148,7 @@ def begin_assignment(
     task_id: int | str,
     session_id: str | None = None,
     initiated_by: str | None = None,
-    event_recorder: Callable[[Dict[str, Any]], None],
+    event_recorder: Callable[[dict[str, Any]], None],
 ) -> Assignment:
     """Beginnt eine Task-Besetzung und zeichnet den Startnachweis auf."""
     contract = authorize_role(role_id, mode)
@@ -190,7 +189,7 @@ def finish_assignment(
     *,
     assignment: Assignment,
     status: str,
-    event_recorder: Callable[[Dict[str, Any]], None],
+    event_recorder: Callable[[dict[str, Any]], None],
     result: str = "",
     reason: str = "",
 ) -> None:

@@ -1,0 +1,27 @@
+# agents-heart
+
+> Provider-neutral Python control library (`v0.2.0`) for worker role contract authorization, assignment start/end correlation, and fail-closed worker profile deletion.
+
+## Key Facts
+- **Package:** `agents-heart` (`src/agents_heart/__init__.py`, PEP 561 `py.typed`)
+- **Python:** `>=3.11` (CI verified on 3.11, 3.12, 3.13 across Linux, Windows, macOS)
+- **Runtime Dependencies:** None (pure Python standard library)
+- **Network Access:** None (`boundaries.network: "none"`)
+- **License:** MIT ([LICENSE](LICENSE))
+- **Languages:** English ([README.md](README.md)), German ([README_de.md](README_de.md))
+
+## Core Interfaces
+- `authorize_role(role_id: str, mode: str) -> RoleContract`: Fail-closed role & execution mode check (`safe` / `full`). Raises `AssignmentDenied`.
+- `begin_assignment(..., event_recorder) -> Assignment`: Emits `assignment.started` receipt with immutable `Assignment` ID and UTC timestamp.
+- `finish_assignment(assignment, status, event_recorder, result="", reason="") -> None`: Emits `assignment.ended` receipt for terminal status (`completed`, `released`, `error`, `interrupted`).
+- `delete_worker_profile(profile_id, profile, *, assert_inactive, terminal_records, archive, remove) -> bool`: Enforces inactivity and `phase == "terminal"` archive verification before deletion. Raises `ProfileDeletionRejected`.
+- `archive_then_remove_profile`: Alias of `delete_worker_profile`.
+
+## Documentation & Entrypoints
+- [README.md](README.md) — English overview, installation, and usage examples
+- [README_de.md](README_de.md) — German documentation
+- [SKILL.md](SKILL.md) — Agent skill specification
+- [ellmos-module.v2.json](ellmos-module.v2.json) — Canonical ellmos module manifest (v2)
+- [CONTRIBUTING.md](CONTRIBUTING.md) — Development and test gates (`ruff check .`, `pytest -ra -v`)
+- [SECURITY.md](SECURITY.md) — Security boundaries and private reporting
+- [CHANGELOG.md](CHANGELOG.md) — Version history
