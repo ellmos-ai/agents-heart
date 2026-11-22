@@ -6,7 +6,7 @@
   "category": "control",
   "kind": "library",
   "status": "active",
-  "visibility": "private",
+  "visibility": "public",
   "description": "Kanonische Worker-Rollenverträge, Assignment-Autorisierung und Profil-Lifecycle für BACH und Ocean.",
   "entrypoints": {
     "library": "agents_heart"
